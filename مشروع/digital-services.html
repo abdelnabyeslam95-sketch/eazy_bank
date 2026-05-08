@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الخدمات الرقمية - Easy Bank</title>
+  <link rel="stylesheet" href="css/digital-services.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1>الخدمات الرقمية</h1>
+    <p>منصة Easy Bank تساعدك على إدارة أموالك بسهولة وأمان في أي وقت ومن أي مكان</p>
+  </header>
+
+  <section class="services">
+    <div class="service-card">
+      
+      <h3>تتبع النفقات</h3>
+      <p>تابع كل مصروفاتك اليومية والأسبوعية والشهرية في لوحة واحدة سهلة الاستخدام.</p>
+    </div>
+
+    <div class="service-card">
+    
+      <h3>إعداد الميزانية</h3>
+      <p>ضع خطط مالية واضحة وحدد أهدافك الشهرية مع إشعارات ذكية للتذكير.</p>
+    </div>
+
+    <div class="service-card">
+      
+      <h3>المدفوعات الرقمية</h3>
+      <p>أرسل واستقبل الأموال فورًا عبر الهاتف أو البريد الإلكتروني بشكل آمن ومضمون.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>أدوات الادخار</h3>
+      <p>وفر فلوسك بسهولة مع خطط ادخار تلقائية مخصصة حسب دخلك وأهدافك.</p>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <h2>توزيع أموالي</h2>
+    <canvas id="financeChart"></canvas>
+  </section>
+
+  <section class="chart-section">
+    <h2>مقارنة الدخل والمصروفات (آخر 6 شهور)</h2>
+    <canvas id="incomeExpenseChart"></canvas>
+  </section>
+
+  <section class="form-section">
+    <h2>إدارة أموالي</h2>
+    <form id="financeForm">
+      <label for="expenses">المصروفات (%)</label>
+      <input type="number" id="expenses" name="expenses" min="0" max="100" required>
+
+      <label for="savings">الادخار (%)</label>
+      <input type="number" id="savings" name="savings" min="0" max="100" required>
+
+      <label for="payments">المدفوعات (%)</label>
+      <input type="number" id="payments" name="payments" min="0" max="100" required>
+
+      <div class="buttons">
+        <button type="submit">تحديث الرسم البياني</button>
+        <button type="button" id="resetBtn">إعادة تعيين</button>
+      </div>
+    </form>
+    <p class="note">⚠ المجموع يجب أن يساوي 100%</p>
+  </section>
+
+  <footer class="page-footer">
+    <p>© 2025 Easy Bank - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script src="js/digital-services.js"></script>
+</body>
+</html>

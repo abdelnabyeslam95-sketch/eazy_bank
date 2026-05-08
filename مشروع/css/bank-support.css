@@ -1,0 +1,131 @@
+body {
+    font-family: "Cairo", sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  .header {
+    text-align: center;
+    background-color: #0074d9;
+    color: white;
+    padding: 2rem;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+  
+  .contact-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  button {
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+  }
+  
+  .chat-box {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .employee-info {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .employee-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 15px;
+  }
+  
+  .status.online {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .chat-messages {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+  
+  .message {
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 75%;
+  }
+  
+  .message.employee {
+    background-color: #0074d9;
+    color: white;
+    margin-right: auto;
+  }
+  
+  .message.client {
+    background-color: #e1e9f0;
+    color: #333;
+    margin-left: auto;
+  }
+  
+  .chat-input {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #0074d9;
+    border-radius: 10px;
+  }
+  
+  .chat-input button {
+    background-color: #0074d9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0074d9;
+    color: white;
+    margin-top: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }

@@ -1,0 +1,152 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f7fb;
+    color: #333;
+    direction: rtl;
+  }
+  
+  .page-header {
+    background: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .page-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+  }
+  
+  .page-header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .plans {
+    padding: 30px 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .plan-card {
+    background: #fff;
+    flex: 1;
+    min-width: 220px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .plan-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .plan-card h3 {
+    color:#003366;
+    margin-bottom: 10px;
+  }
+  
+  .investment {
+    margin: 30px 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .investment table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .investment th, .investment td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .investment th {
+    background:#003366;
+    color: #fff;
+  }
+  
+  .chart-section {
+    background: #fff;
+    margin: 30px 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .chart-section h2 {
+    margin-bottom: 20px;
+    color:#003366;
+  }
+  
+  .calculator {
+    background: #fff;
+    margin: 30px 20px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .calculator h2 {
+    text-align: center;
+    color:#003366;
+    margin-bottom: 20px;
+  }
+  
+  .calculator form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .calculator label {
+    font-weight: bold;
+  }
+  
+  .calculator input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .calculator button {
+    background:#003366;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .calculator button:hover {
+    background:#003366;
+  }
+  
+  #result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .page-footer {
+    background:#003366;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+  }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>القروض البنكية</title>
+  <link rel="stylesheet" href="css/loans.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>خدمات القروض البنكية</h1>
+
+    <form id="loanForm">
+      <label for="loanType">نوع القرض:</label>
+      <select id="loanType" required>
+        <option value="">اختر نوع القرض</option>
+        <option value="personal">قرض شخصي</option>
+        <option value="car">قرض سيارة</option>
+        <option value="home">قرض عقاري</option>
+        <option value="business">قرض تجاري</option>
+      </select>
+
+      <label for="amount">مبلغ القرض:</label>
+      <input type="number" id="amount" placeholder="أدخل مبلغ القرض" required>
+
+      <label for="years">مدة القرض (بالسنوات):</label>
+      <input type="number" id="years" placeholder="مثال: 5" required>
+
+      <button type="submit">احسب القرض</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+
+    <div class="chart-container">
+      <canvas id="loanChart"></canvas>
+    </div>
+  </div>
+
+  <script src="js/loans.js"></script>
+</body>
+</html>

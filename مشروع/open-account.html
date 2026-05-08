@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فتح حساب جديد - Easy Bank</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="account-container">
+    <h2>فتح حساب بنكي جديد</h2>
+    <form id="accountForm">
+      <label for="fullName">الاسم الكامل:</label>
+      <input type="text" id="fullName" name="fullName" placeholder="أدخل اسمك بالكامل" required>
+
+      <label for="nationalId">الرقم القومي:</label>
+      <input type="text" id="nationalId" name="nationalId" placeholder="أدخل رقمك القومي" required>
+
+      <label for="phone">رقم الهاتف:</label>
+      <input type="tel" id="phone" name="phone" placeholder="أدخل رقم الهاتف" required>
+
+      <label for="email">البريد الإلكتروني:</label>
+      <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+
+      <label for="accountType">نوع الحساب:</label>
+      <select id="accountType" name="accountType" required>
+        <option value="">اختر نوع الحساب</option>
+        <option value="saving">حساب توفير</option>
+        <option value="current">حساب جاري</option>
+        <option value="youth">حساب الشباب</option>
+        <option value="business">حساب الأعمال</option>
+      </select>
+
+      <label for="deposit">الحد الأدنى للإيداع (جنيه):</label>
+      <input type="number" id="deposit" name="deposit" min="500" placeholder="500 جنيه على الأقل" required>
+
+      <button type="submit">فتح الحساب</button>
+      <p id="accountMessage" class="form-message"></p>
+    </form>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

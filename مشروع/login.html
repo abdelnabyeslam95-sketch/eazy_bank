@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Easy Bank - تسجيل الدخول وإنشاء حساب</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#0f172a,#1e293b);
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .container{
+      width:400px;
+      background:#fff;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 10px 25px rgba(0,0,0,.3);
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:25px;
+      color:#0f172a;
+    }
+
+    .tabs{
+      display:flex;
+      margin-bottom:20px;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .tabs button{
+      flex:1;
+      padding:12px;
+      border:none;
+      cursor:pointer;
+      background:#cbd5e1;
+      font-size:16px;
+      transition:.3s;
+    }
+
+    .tabs button.active{
+      background:#0f172a;
+      color:#fff;
+    }
+
+    form{
+      display:none;
+      flex-direction:column;
+      gap:15px;
+    }
+
+    form.active{
+      display:flex;
+    }
+
+    input, select{
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      outline:none;
+      font-size:15px;
+    }
+
+    button.submit-btn{
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      background:#0f172a;
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    button.submit-btn:hover{
+      background:#1e293b;
+    }
+
+    .message{
+      text-align:center;
+      margin-top:10px;
+      font-weight:bold;
+    }
+
+    .success{
+      color:green;
+    }
+
+    .error{
+      color:red;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h2 class="title">Easy Bank</h2>
+
+    <div class="tabs">
+      <button class="active" onclick="showForm('login')">تسجيل الدخول</button>
+      <button onclick="showForm('register')">إنشاء حساب</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="active">
+
+      <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" required>
+
+      <input type="password" id="loginPassword" placeholder="كلمة المرور" required>
+
+      <button type="submit" class="submit-btn">
+        تسجيل الدخول
+      </button>
+
+      <p id="loginMessage" class="message"></p>
+
+    </form>
+
+    <!-- Register Form -->
+    <form id="registerForm">
+
+      <input type="text" id="registerName" placeholder="الاسم الكامل" required>
+
+      <input type="email" id="registerEmail" placeholder="البريد الإلكتروني" required>
+
+      <input type="password" id="registerPassword" placeholder="كلمة المرور" required>
+
+      <select id="registerRole" required>
+        <option value="">اختر نوع الحساب</option>
+        <option value="client">عميل</option>
+        <option value="admin">ادمن</option>
+      </select>
+
+      <button type="submit" class="submit-btn">
+        إنشاء حساب
+      </button>
+
+      <p id="registerMessage" class="message"></p>
+
+    </form>
+
+  </div>
+
+  <script>
+
+  // ===============================
+// التنقل بين تسجيل الدخول وإنشاء الحساب
+// ===============================
+
+function showForm(type){
+
+const loginForm =
+document.getElementById("loginForm");
+
+const registerForm =
+document.getElementById("registerForm");
+
+const buttons =
+document.querySelectorAll(".tabs button");
+
+// إزالة التفعيل
+buttons.forEach(btn=>{
+    btn.classList.remove("active");
+});
+
+// إظهار الفورم المناسب
+if(type === "login"){
+
+    loginForm.classList.add("active");
+    registerForm.classList.remove("active");
+
+    buttons[0].classList.add("active");
+
+}else{
+
+    registerForm.classList.add("active");
+    loginForm.classList.remove("active");
+
+    buttons[1].classList.add("active");
+
+}
+
+}
+
+// ===============================
+// إنشاء حساب جديد
+// ===============================
+
+document.getElementById("registerForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const name =
+document.getElementById("registerName").value;
+
+const email =
+document.getElementById("registerEmail").value;
+
+const password =
+document.getElementById("registerPassword").value;
+
+const role =
+document.getElementById("registerRole").value;
+
+const msg =
+document.getElementById("registerMessage");
+
+// التحقق هل الحساب موجود
+const existingUser =
+localStorage.getItem(email);
+
+if(existingUser){
+
+    msg.innerHTML =
+    "هذا البريد مستخدم بالفعل";
+
+    msg.className =
+    "message error";
+
+    return;
+
+}
+
+// إنشاء المستخدم
+const user = {
+
+    name:name,
+    email:email,
+    password:password,
+    role:role,
+
+    // بيانات افتراضية
+    balance:250000,
+    accountNumber:
+    Math.floor(Math.random()*999999999),
+
+    profits:12500,
+
+    transfers:0,
+
+    transactions:[]
+
+};
+
+// حفظ المستخدم
+localStorage.setItem(
+    email,
+    JSON.stringify(user)
+);
+
+msg.innerHTML =
+"تم إنشاء الحساب بنجاح";
+
+msg.className =
+"message success";
+
+// تنظيف الفورم
+document.getElementById("registerForm")
+.reset();
+
+// التحويل لتسجيل الدخول
+setTimeout(()=>{
+
+    showForm("login");
+
+},1500);
+
+});
+
+// ===============================
+// تسجيل الدخول
+// ===============================
+
+document.getElementById("loginForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const email =
+document.getElementById("loginEmail").value;
+
+const password =
+document.getElementById("loginPassword").value;
+
+const msg =
+document.getElementById("loginMessage");
+
+// جلب المستخدم
+const user =
+JSON.parse(localStorage.getItem(email));
+
+// التحقق من البيانات
+if(user && user.password === password){
+
+    // حفظ المستخدم الحالي
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(user)
+    );
+
+    msg.innerHTML =
+    "تم تسجيل الدخول بنجاح";
+
+    msg.className =
+    "message success";
+
+    // التحويل حسب نوع الحساب
+    setTimeout(()=>{
+
+        // Admin
+        if(user.role === "admin"){
+
+            window.location.href =
+            "admin-dashboard.html";
+
+        }
+
+        // Client
+        else{
+
+            window.location.href =
+            "client-dashboard.html";
+
+        }
+
+    },1000);
+
+}else{
+
+    msg.innerHTML =
+    "البريد الإلكتروني أو كلمة المرور غير صحيحة";
+
+    msg.className =
+    "message error";
+
+}
+
+});
+
+// ===============================
+// تسجيل الخروج
+// ===============================
+
+function logout(){
+
+localStorage.removeItem("currentUser");
+
+window.location.href =
+"login.html";
+
+}
+
+// ===============================
+// حماية الصفحات
+// ===============================
+
+function protectPage(role){
+
+const currentUser =
+JSON.parse(localStorage.getItem("currentUser"));
+
+// لو مش مسجل دخول
+if(!currentUser){
+
+    window.location.href =
+    "login.html";
+
+    return;
+
+}
+
+// حماية صفحات الأدمن
+if(role === "admin" &&
+   currentUser.role !== "admin"){
+
+    alert("غير مصرح لك بالدخول");
+
+    window.location.href =
+    "client-dashboard.html";
+
+}
+
+}
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>إصدار بطاقة ائتمانية - Easy Bank</title>
+
+  <!-- FontAwesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS خارجي -->
+  <link rel="stylesheet" href="css/cards.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1>إصدار بطاقة ائتمان</h1>
+      <p class="subtitle">اطلب بطاقتك الآن — أمان عالي وتصميم أنيق.</p>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <!-- العمود الأيسر: عرض البطاقة + شرح -->
+    <section class="card-preview-area" aria-label="معاينة البطاقة">
+      <div class="preview-top">
+        <div class="card-visual" id="cardFront" aria-hidden="false">
+          <div class="chip"></div>
+          <div class="bank-name" id="previewBank">Easy Bank</div>
+          <div class="card-number" id="previewNumber">•••• •••• •••• ••••</div>
+          <div class="card-row">
+            <div class="card-holder">
+              <div class="label">اسم صاحب البطاقة</div>
+              <div id="previewName">الاسم هنا</div>
+            </div>
+            <div class="card-expiry">
+              <div class="label">صلاحية</div>
+              <div id="previewExpiry">--/--</div>
+            </div>
+          </div>
+        </div>
+
+   
+
+      <div class="instructions" aria-label="كيفية إصدار البطاقة">
+        <h2>إزاي أعمل بطاقة؟</h2>
+        <ol>
+          <li>املأ نموذج طلب البطاقة الموجود على اليمين (الاسم، الإيميل، نوع البطاقة).</li>
+          <li>اختر نوع البطاقة وحدد الحد الائتماني المطلوب.</li>
+          <li>راجع بياناتك ثم اضغط "قدّم طلب".</li>
+          <li>سيصلك تأكيد مبدأي عبر البريد، وسيتم مراجعة الطلب من البنك خلال 1-3 أيام عمل.</li>
+          <li>عند الموافقة ستصلك البطاقة بالبريد أو يمكنك استلامها من الفرع حسب اختيارك.</li>
+        </ol>
+        <p class="note"><strong>ملاحظة:</strong> هذا نظام تجريبي — الأرقام المولّدة وهمية لأغراض العرض فقط.</p>
+      </div>
+    </section>
+
+    <!-- العمود الأيمن: النموذج -->
+    <section class="form-area" aria-label="نموذج طلب البطاقة">
+      <form id="cardForm" class="card-form" novalidate>
+        <h2>طلب بطاقة ائتمانية</h2>
+
+        <label for="fullName">الاسم الكامل</label>
+        <input id="fullName" name="fullName" type="text" placeholder="اكتب اسمك كما في البطاقة" required />
+
+        <label for="email">البريد الإلكتروني</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="phone">رقم الهاتف</label>
+        <input id="phone" name="phone" type="tel" placeholder="010XXXXXXXX" required />
+
+        <label>نوع البطاقة</label>
+        <div class="card-types" role="radiogroup" aria-label="نوع البطاقة">
+          <label class="type-option">
+            <input type="radio" name="cardType" value="Classic" checked />
+            <span class="type-pill classic">Classic</span>
+          </label>
+          <label class="type-option">
+            <input type="radio" name="cardType" value="Gold" />
+            <span class="type-pill gold">Gold</span>
+          </label>
+          <label class="type-option">
+            <input type="radio" name="cardType" value="Platinum" />
+            <span class="type-pill platinum">Platinum</span>
+          </label>
+        </div>
+
+        <label for="limit">الحد الائتماني المطلوب (ج.م)</label>
+        <input id="limit" name="limit" type="number" min="1000" placeholder="مثال: 20000" required />
+
+        <div class="form-actions">
+          <button type="button" id="genCardBtn" class="btn secondary" title="توليد رقم عرضي">توليد رقم عرضي</button>
+          <button type="submit" id="submitBtn" class="btn primary">قدّم طلب البطاقة</button>
+        </div>
+
+        <div id="formMsg" class="form-msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <!-- سجل الطلبات (اختياري للعرض) -->
+      <div class="requests-log" aria-label="سجل طلبات البطاقة">
+        <h3>طلبات سابقة (محليًا)</h3>
+        <ul id="requestsList"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© 2025 Easy Bank — نظام تجريبي لعرض واجهة إصدار البطاقات</small>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/cards.js"></script>
+</body>
+</html>
