@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الادخار والاستثمار - Easy Bank</title>
+  <link rel="stylesheet" href="css/saving-investments.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1>الادخار والاستثمار</h1>
+    <p>خطط لمستقبلك المالي مع Easy Bank بخطط ادخار واستثمار تناسب أهدافك</p>
+  </header>
+
+  <!-- خطط الادخار -->
+  <section class="plans">
+    <h2>خطط الادخار</h2>
+    <div class="plan-card">
+      <h3>قصير المدى</h3>
+      <p>ادخر لمصروفاتك الطارئة أو هدف خلال سنة أو أقل.</p>
+    </div>
+    <div class="plan-card">
+      <h3>متوسط المدى</h3>
+      <p>خطة ادخار بين 1 - 5 سنوات لشراء سيارة أو تجهيز زواج.</p>
+    </div>
+    <div class="plan-card">
+      <h3>طويل المدى</h3>
+      <p>خطة ادخار أكثر من 5 سنوات للتقاعد أو استثمارات كبيرة.</p>
+    </div>
+  </section>
+
+  <!-- برامج الاستثمار -->
+  <section class="investment">
+    <h2>برامج الاستثمار</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>البرنامج</th>
+          <th>المخاطر</th>
+          <th>العائد المتوقع</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>شهادات ادخار</td>
+          <td>منخفضة</td>
+          <td>6% - 10%</td>
+        </tr>
+        <tr>
+          <td>محافظ استثمارية</td>
+          <td>متوسطة</td>
+          <td>10% - 15%</td>
+        </tr>
+        <tr>
+          <td>الأسهم وصناديق الاستثمار</td>
+          <td>مرتفعة</td>
+          <td>15% - 25%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- الرسم البياني -->
+  <section class="chart-section">
+    <h2>تطور المدخرات على مدار السنوات</h2>
+    <canvas id="savingsChart"></canvas>
+  </section>
+
+  <!-- الحاسبة -->
+  <section class="calculator">
+    <h2>حاسبة الادخار</h2>
+    <form id="savingForm">
+      <label for="income">الدخل الشهري (جنيه):</label>
+      <input type="number" id="income" required>
+
+      <label for="rate">نسبة الادخار (%):</label>
+      <input type="number" id="rate" min="1" max="100" required>
+
+      <label for="years">عدد السنوات:</label>
+      <input type="number" id="years" min="1" max="50" required>
+
+      <button type="submit">احسب</button>
+    </form>
+    <div id="result"></div>
+  </section>
+
+  <footer class="page-footer">
+    <p>© 2025 Easy Bank - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script src="js/saving-investments.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التواصل مع موظف البنك - Easy Bank</title>
+  <link rel="stylesheet" href="css/bank-support.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>تواصل مع موظف البنك من منزلك 🏠</h1>
+    <p>تقدر دلوقتي تتحدث مباشرة مع موظف البنك لأي استفسار أو مساعدة بدون ما تروح الفرع.</p>
+  </header>
+
+  <section class="contact-options">
+    <button id="chatBtn">💬 بدء الدردشة</button>
+    <button id="videoBtn">📹 مكالمة فيديو (قريبًا)</button>
+  </section>
+
+  <section id="chatSection" class="chat-box hidden">
+    <div class="employee-info">
+      <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="Bank Employee" />
+      <div>
+        <h3>أ. محمد عبدالسلام</h3>
+        <p class="status online">متصل الآن</p>
+        <p>التخصص: خدمة العملاء</p>
+      </div>
+    </div>
+
+    <div id="chatMessages" class="chat-messages">
+      <div class="message employee">مرحبًا بك في Easy Bank! كيف يمكنني مساعدتك اليوم؟</div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" id="messageInput" placeholder="اكتب رسالتك هنا..." />
+      <button id="sendMessage">إرسال</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Easy Bank | جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script src="js/bank-support.js"></script>
+</body>
+</html>
