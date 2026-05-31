@@ -10,6 +10,7 @@ body {
   background: #f5f7fa;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden; /* لمنع ظهور شريط التمرير الأفقي */
 }
 
 /* Navbar */
@@ -26,6 +27,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .logo {
@@ -38,6 +41,7 @@ header {
   list-style: none;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -63,6 +67,8 @@ header {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero h1 {
@@ -72,23 +78,33 @@ header {
 
 .hero p {
   font-size: 18px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
 .hero img {
+  width: 100%;
   max-width: 420px;
+  height: auto;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-/*btnn*/
-.btnn{
+
+/* btnn */
+.btnn {
+  display: inline-block;
   border: 1px solid #003366;
   background-color: #003366;
   color: #fff;
   text-decoration: none;
-  padding: 2px 15px;
+  padding: 5px 15px;
   border-radius: 10px;
+  transition: 0.3s;
 }
+
+.btnn:hover {
+  background-color: #002244;
+}
+
 /* Services */
 .services {
   padding: 60px 10%;
@@ -152,11 +168,14 @@ header {
   display: flex;
   gap: 40px;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .about img {
+  width: 100%;
   max-width: 350px;
+  height: auto;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
@@ -168,32 +187,35 @@ header {
 
 /* Loans */
 .loans {
-  display:inline-block;
+  display: block;
   padding: 60px 10%;
   background: #f0f6ff;
-text-align: center;
-margin-right: 25%;
-
+  text-align: center;
 }
 
 .loans-content {
-  text-align: center;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 20px;
   padding: 20px;
 }
 
 .loans img {
+  width: 100%;
   max-width: 500px;
+  height: auto;
   border-radius: 15px;
-  padding: 30px 0;
+  padding: 15px 0;
 }
 
 .loans p {
   font-size: 18px;
-  max-width: 400px;
+  max-width: 500px;
+  margin: 0 auto;
 }
+
 /* Dashboard */
 .card h5 {
   margin-top: 10px;
@@ -202,17 +224,21 @@ margin-right: 25%;
 
 .table {
   text-align: center;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table td, .table th {
   vertical-align: middle;
+  padding: 10px;
 }
+
 .dashboard-buttons {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   margin-top: 30px;
-  margin-right: 30%;
+  justify-content: center;
   margin-bottom: 10px;
 }
 
@@ -230,6 +256,7 @@ margin-right: 25%;
 .dashboard-buttons button:hover {
   background: #1a5dbb;
 }
+
 /* Account */
 .account {
   padding: 60px 10%;
@@ -278,7 +305,7 @@ margin-right: 25%;
 }
 
 .section {
-  padding: 50px 20px;
+  padding: 40px 20px;
   text-align: center;
   background: #f9f9f9;
   margin-bottom: 40px;
@@ -327,7 +354,7 @@ margin-right: 25%;
   color: #007bff;
 }
 
-/* Contact */
+/* Contact Form */
 #contactForm {
   max-width: 500px;
   margin: auto;
@@ -345,6 +372,7 @@ margin-right: 25%;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
+  width: 100%;
 }
 #contactForm button {
   padding: 12px;
@@ -365,7 +393,7 @@ margin-right: 25%;
   font-weight: bold;
 }
 
-/*فتح حساب بنكى */
+/* فتح حساب بنكى */
 .account-container {
   background: #fff;
   padding: 40px;
@@ -374,8 +402,7 @@ margin-right: 25%;
   width: 100%;
   max-width: 500px;
   animation: fadeIn 0.6s ease-in-out;
-  margin-right: 30%;
-
+  margin: 0 auto; /* تم تعديلها لتتوسط الشاشة تلقائياً */
 }
 
 .account-container h2 {
@@ -401,6 +428,7 @@ input, select {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
+  width: 100%;
 }
 
 button {
@@ -418,17 +446,10 @@ button:hover {
   background: #004999;
 }
 
-.form-message {
-  margin-top: 15px;
-  text-align: center;
-  font-weight: bold;
-}
-
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(-20px);}
   to {opacity: 1; transform: translateY(0);}
 }
-
 
 /* Chatbot */
 .chatbot-container {
@@ -529,7 +550,6 @@ button:hover {
   border-bottom-right-radius: 15px;
 }
 
-
 /* Footer */
 footer {
   background: #003366;
@@ -560,26 +580,6 @@ footer {
   color: #fff;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-content {
-    flex-direction: column;
-  }
-  .loans-content {
-    flex-direction: column;
-  }
-  .section-content{
-    flex-direction: column;
-  }
-}
 /* زر الوضع الداكن */
 .btn-dark-mode {
   background: transparent;
@@ -624,7 +624,100 @@ body.dark-mode footer {
   background: #111;
   color: #ccc;
 }
-body.btn-dark-mode .loans{
+body.dark-mode .loans {
   background: #111;
   color: #ccc;
+}
+
+
+/* ==========================================================================
+   شاشات التجاوب (Media Queries) لدعم جميع الشاشات
+   ========================================================================== */
+
+/* للشاشات المتوسطة وأجهزة التابلت الكبيرة (أقل من 1024px) */
+@media (max-width: 1024px) {
+  .hero, .services, .about, .loans, .account, .contact {
+    padding: 40px 5%; /* تقليل الحواف الجانبية لتوفير مساحة */
+  }
+}
+
+/* لأجهزة التابلت والشاشات المتوسطة (أقل من 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* جعل اللوجو والروابط فوق بعضهم */
+    text-align: center;
+  }
+  
+  .nav-links {
+    justify-content: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .about-content, .loans-content, .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* جعل الجداول قابلة للتمرير الأفقي بدلاً من كسر التصميم */
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* للهواتف الذكية الشاشات الصغيرة (أقل من 480px) */
+@media (max-width: 480px) {
+  header {
+    padding: 15px 10px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p, .loans p, .about p {
+    font-size: 15px;
+  }
+
+  .services h2, .account h2, .contact h2, .account-container h2 {
+    font-size: 22px;
+  }
+
+  .account-container {
+    padding: 20px 15px;
+  }
+  
+  /* تعديل صندوق الشات بوت ليناسب شاشات الموبايل الصغيرة جداً */
+  .chatbot-box {
+    width: 280px;
+    right: -10px;
+  }
 }
